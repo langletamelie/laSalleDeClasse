@@ -1,0 +1,13 @@
+.nav-wrapper, .page-footer{
+    background-color: #15724a;
+}
+#back-nav{
+    padding-left: 250px;
+}
+body{
+    background-color: #dbe2d5;
+}
+#classroom{
+width: 100%;
+height: 650px;
+}
