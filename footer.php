@@ -1,4 +1,7 @@
-<footer class="page-footer indigo darken-4">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="assets/js/script.js"></script>
+<footer>
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
@@ -21,4 +24,4 @@
             <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
             </div>
           </div>
-        </footer>
+</footer>
