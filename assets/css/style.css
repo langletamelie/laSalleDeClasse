@@ -2,15 +2,23 @@
     background-color: #4e0b16;
 }
 
-#buttonNavbar {
-    padding-left: 250px;
+#buttonNavbarConnected {
+    padding-left: 350px;
+}
+
+#buttonNavbarNotConnected {
+    padding-left: 620px;
 }
 
 body {
-    background-color: #725e61;
+    background-color: #5c5391;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
 }
 
 #classroom {
@@ -18,21 +26,29 @@ body {
 }
 
 footer {
-    background-color: #4e0b16;
+    background-color: rgba(255,255,255,0.3);
+    opacity: 0.1;
 }
 
 #navBtn {
     background-color: #770b1a;
+    font-size: 30px !important;
 }
 
-main {
-    flex: 1 0 auto;
+#navBtnConnected {
+    background-color: #770b1a;
+}
+
+#formConnection, 
+#searchActivity,
+#addActivity {
+    margin-top: 50px;
 }
 
 #startButton,
-#inscriptionButton,
-#connectionButton {
-    background-color: #001942;
+#submitButton,
+#redirectionButton {
+    background-color: #770b1a;
     text-align: center;
     font-size: 35px !important;
     margin-top: 50px;
@@ -40,12 +56,23 @@ main {
 }
 
 label,
-#conditions,
-#teacher {
+#termsOfUse,
+#certifyTeacher {
     color: white !important;
     font-size: 25px !important;
 }
 
 p {
     font-size: 20px;
+}
+#error{
+ color: #770b1a;
+ text-align: center;
+}
+
+#addHisActivities, 
+#favoritesActivities,
+#modifyProfil{
+background-color: blue;
+
 }

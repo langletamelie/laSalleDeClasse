@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Création de la classe categories
+ * Création de la classe schoolDegrees
  */
-class categories extends database {
+class schoolDegrees extends database {
 
     public $id;
     public $name;
@@ -15,11 +15,11 @@ class categories extends database {
     }
 
 /**
- * Méthode pour l'affichage des différentes catégories
+ * Méthode pour l'affichage des différents niveaux scolaires
  */
-    public function getCategoriesList() {
+    public function getSchoolDegreesList() {
         $isObjectResult = array();
-        $PDOResult = $this->dbase->query('SELECT `id`, `name` FROM `MOUET_categories` ORDER BY `name`');
+        $PDOResult = $this->dbase->query('SELECT `id`, `name` FROM `MOUET_schoolDegrees`');
              
         if (is_object($PDOResult)) {
             $isObjectResult = $PDOResult->fetchAll(PDO::FETCH_OBJ);
