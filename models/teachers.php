@@ -12,11 +12,8 @@ class teachers extends database {
     public $city;
     public $mail;
     public $password;
+    public $idPicturesProfil;
 
-    public function __construct() {
-        parent::__construct();
-        $this->dbConnect();
-    }
 
     /**
      * méthode pour ajouter des professeurs
@@ -24,7 +21,7 @@ class teachers extends database {
     public function addTeacher() {
         $query = 'INSERT INTO `MOUET_teachers` (`lastname`, `firstname`, `city`, `username`, `password`, `mail`) '
                 . 'VALUES (:lastname, :firstname, :city, :username, :password, :mail)';
-        $insertInTeachersTable = $this->dbase->prepare($query);
+        $insertInTeachersTable = database::getInstance()->prepare($query);
         $insertInTeachersTable->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
         $insertInTeachersTable->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
         $insertInTeachersTable->bindValue(':city', $this->city, PDO::PARAM_STR);
@@ -41,7 +38,7 @@ class teachers extends database {
         $query = 'SELECT COUNT(`id`) AS `count` '
                 . 'FROM `MOUET_teachers` '
                 . 'WHERE `lastname` = :lastname AND `firstname` = :firstname AND `mail` = :mail';
-        $ifTeacherExist = $this->dbase->prepare($query);
+        $ifTeacherExist = database::getInstance()->prepare($query);
         $ifTeacherExist->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
         $ifTeacherExist->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
         $ifTeacherExist->bindValue(':mail', $this->mail, PDO::PARAM_STR);
@@ -54,12 +51,13 @@ class teachers extends database {
         }
         return $check;
     }
+
     /**
      * Méthode pour vérifier si le nom d'utilisteur existe déjà
      */
     public function checkIfUsernameExist() {
         $query = 'SELECT COUNT(`id`) AS `count` FROM `MOUET_teachers` WHERE `username` = :username';
-        $ifUsernameExist = $this->dbase->prepare($query);
+        $ifUsernameExist = database::getInstance()->prepare($query);
         $ifUsernameExist->bindValue(':username', $this->username, PDO::PARAM_STR);
 
         if ($ifUsernameExist->execute()) {
@@ -79,7 +77,7 @@ class teachers extends database {
         $query = 'SELECT `id`, `username`, `password` '
                 . 'FROM `MOUET_teachers` '
                 . 'WHERE `username` = :username';
-        $result = $this->dbase->prepare($query);
+        $result = database::getInstance()->prepare($query);
         $result->bindValue(':username', $this->username, PDO::PARAM_STR);
         if ($result->execute()) { //on vérifie que la requête s'est exécutée
             $selectResult = $result->fetch(PDO::FETCH_OBJ);
@@ -93,5 +91,48 @@ class teachers extends database {
         }
         return $state;
     }
+
+    /**
+     * Méthode pour afficher le profil du professeur sur sa page de profil 
+     */
+    public function displayProfilTeacher() {
+        $displayUsernameAndPictureProfil = array();
+        $query = 'SELECT `tchs`.`id`, `tchs`.`username`, `picPro`.`name` '
+                . 'FROM `MOUET_teachers` AS `tchs` '
+                . 'LEFT JOIN `MOUET_picturesProfil` AS `picPro` '
+                . 'ON `tchs`.`idPicturesProfil` = `picPro`.`id`'
+                . 'WHERE `tchs`.`id` = :id';
+        $displayUsernameAndPictureProfil = database::getInstance()->prepare($query);
+        $displayUsernameAndPictureProfil->bindValue(':id', $this->id, PDO::PARAM_INT);
+        if($displayUsernameAndPictureProfil->execute()) {
+        if (is_object($displayUsernameAndPictureProfil)) {
+            $result = $displayUsernameAndPictureProfil->fetch(PDO::FETCH_OBJ);
+        } 
+    }
+        return $result;
+    }
+ 
+    /**
+     * Méthode pour modifier le mot de passe de l'utilisateur
+     */
+public function modifyPasswordByTeacher() {
+    $query = 'UPDATE `MOUET_teachers` SET `password` = :password WHERE `id` = :id';
+    $updatePasswordInTable = database::getInstance()->prepare($query);
+    $updatePasswordInTable->bindValue(':id', $this->id, PDO::PARAM_INT);
+    $updatePasswordInTable->bindValue(':password', $this->password, PDO::PARAM_STR);
+    return $updatePasswordInTable->execute();
+}
+
+/**
+ * Méthode pour modifier la photo de profil du professeur
+ */
+public function changePictureProfil() {
+    $query = 'UPDATE `MOUET_teachers` SET `idPicturesProfil` = :idPicturesProfil WHERE `id` = :id';
+    $updatePictureProfil = database::getInstance()->prepare($query);
+    $updatePictureProfil->bindValue(':id', $this->id, PDO::PARAM_INT);
+    $updatePictureProfil->bindValue(':idPicturesProfil', $this->idPicturesProfil, PDO::PARAM_INT);
+    return $updatePictureProfil->execute();
+}
+
 
 }

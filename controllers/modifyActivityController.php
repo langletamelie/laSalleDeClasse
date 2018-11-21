@@ -1,21 +1,15 @@
 <?php
-
-$activity = NEW activities();
+if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
+    $activity = NEW activities();
+    $activity->id = $_GET['id'];
+$displayAnActivity = $activity->displayActivity();
+}
 $category = NEW categories();
 $schoolDegree = NEW schoolDegrees();
 $actBySchDgr = NEW activityBySchoolDegree();
-$teacher = NEW teachers();
 
 $categoriesList = $category->getCategoriesList();
 $schoolDegreesList = $schoolDegree->getSchoolDegreesList();
-
-$lastId = 0;
-$idCategories = 0;
-$idActivities = 0; 
-$idSchoolDegrees = 0;
-//déclaration du tableau d'erreur
-$formError = array();
-
 
 
 if (isset($_POST['submit'])) {
@@ -86,7 +80,3 @@ if (isset($_POST['submit'])) {
         die('Erreur : ' . $e->getMessage());
     }
 }
-
-
-
-

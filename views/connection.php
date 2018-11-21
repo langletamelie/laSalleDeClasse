@@ -12,7 +12,7 @@ include '../controllers/connectionController.php';
                 <p id="error"><?= isset($errorList['username']) ? $errorList['username'] : '' ?></p>
             </div>
             <div class="input-field col s10 offset-s2">
-                <input id="password" name="password" type="text" class="validate">
+                <input id="password" name="password" type="password" class="validate">
                 <label for="password">Mot de passe</label>
                 <p id="error"><?= isset($errorList['password']) ? $errorList['password'] : '' ?></p>
             </div>

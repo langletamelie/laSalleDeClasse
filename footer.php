@@ -1,3 +1,7 @@
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="<?= $path ?>assets/js/script.js"></script>
 <footer>
     <div class="container-fluid">
         <div class="row">
@@ -10,13 +14,7 @@
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
             </div>
         </div>
     </div>
 </footer>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script src="<?= $path ?>assets/js/script.js"></script>

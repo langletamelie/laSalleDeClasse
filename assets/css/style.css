@@ -3,7 +3,7 @@
 }
 
 #buttonNavbarConnected {
-    padding-left: 350px;
+    padding-left: 450px;
 }
 
 #buttonNavbarNotConnected {
@@ -75,4 +75,16 @@ p {
 #modifyProfil{
 background-color: blue;
 
+}
+#profilCard {
+    border: 2px solid black;
+    border-radius:7px;
+}
+.card-content {
+    color: #4e0b16;
+    text-align: center;
+}
+
+.card-panel {
+    text-align: center;
 }
