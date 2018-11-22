@@ -24,7 +24,7 @@ $(document).ready(function () {
     $('#resultOfActivity').trigger('autoresize');
 
 //cacher les différentes catégories de la page de profil par défaut
-    //$('#favoritesActivities').hide();
+    $('#favoritesActivities').hide();
     $('#addHisActivities').hide();
     $('#modifyProfil').hide();
 

@@ -5,7 +5,7 @@ $pictureProfilList = $pictureProfil->getPicturesProfilList();
 
 
 $formError = array();
-
+//affichage du profil du professeur
 if (!empty($_SESSION['id'])) {
     $teacher = NEW teachers();
     $teacher->id = $_SESSION['id'];
@@ -13,7 +13,6 @@ if (!empty($_SESSION['id'])) {
 }
 
 //select pour choisir une photo de profil
-
 if (isset($_POST['submit'])) {
   if (!empty($_POST['selectPicture'])) {
     $pictureProfil = $_POST['selectPicture'];
@@ -33,12 +32,11 @@ if (isset($_POST['submit'])) {
       }
 
 //afficher les ateliers favoris du professeur
-if (!empty($_SESSION['id'])) {
-    $favorite = NEW favorites();
-    $favorite->idTeachers = $_SESSION['id'];
-    $favorite->idActivities = $idActivities;
-    $displayFavoritesActivities = $favorite->getFavoriteActivityOfATeacher();
-    }
+      if (!empty($_SESSION['id'])) {
+      $activity = NEW activities();
+      $activity->idTeachers = $_SESSION['id'];  
+      $displayFavoritesActivities = $activity->getFavoriteActivityOfATeacher();
+      }
 
 //changement du mot de passe 
 if (isset($_POST['changePasswordSubmit'])) {

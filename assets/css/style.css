@@ -3,7 +3,7 @@
 }
 
 #buttonNavbarConnected {
-    padding-left: 450px;
+    padding-left: 400px;
 }
 
 #buttonNavbarNotConnected {
@@ -37,6 +37,7 @@ footer {
 
 #navBtnConnected {
     background-color: #770b1a;
+    font-size: 19px !important;
 }
 
 #formConnection, 

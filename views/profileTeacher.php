@@ -54,7 +54,7 @@ include '../controllers/profileTeacherController.php';
                     </div>
                 <?php } ?>
             </div>
-            <div id="modifyProfil"> 
+            <div id="modifyProfil" class="blue-grey darken-1"> 
                 <div>
                     <form id="choosePictureProfil" class="col s10" action="profileTeacher.php" method="POST">
                         <label class="col s10 offset-s2" for="selectPicture">Choissisez une photo de profil</label>

@@ -8,9 +8,9 @@ include '../controllers/addActivityController.php';
         <div class="row">
             <form id="addActivity" class="col s10" action="#" method="POST">
                 <div class="input-field col s10 offset-s2">
-                    <input id="activityName" name="activityName" type="text" value="<?= isset($name) ? $name : '' ?>" />
-                    <label for="activityName">Nom de l'activité</label>
-                    <p id="error"><?= isset($formError['activityName']) ? $formError['activityName'] : '' ?></p>
+                    <input id="name" name="name" type="text" value="<?= isset($name) ? $name : '' ?>" />
+                    <label for="name">Nom de l'activité</label>
+                    <p id="error"><?= isset($formError['name']) ? $formError['name'] : '' ?></p>
                 </div>
                 <label class="col s10 offset-s2" for="selectCategories">Choissisez une catégorie</label>
                 <div class="col s10 offset-s2">

@@ -13,13 +13,10 @@ class activities extends database {
     public $resultOfActivity;
     public $idCategories;
     public $idTeachers;
-    public $selectCategories;
-    public $selectSchoolDegrees;
-
  
 
     /**
-     * Méthode pour ajouter une activité
+     * Méthode pour ajouter un atelier
      */
     public function addActivity() {
         $query = 'INSERT INTO `MOUET_activities` (`name`, `object`, `planning`, `progress`, `resultOfActivity`, `idCategories`, `idTeachers`) '
@@ -36,7 +33,23 @@ class activities extends database {
     }
 
     /**
-     * Méthode pour rechercher une activité 
+     * Méthode pour modifier un atelier
+     */
+
+     public function updateAnActivity(){
+        $query = 'UPDATE `MOUET_activities` SET `name` = :name, `object` = :object, `planning` = :planning, `progress` = :progress, `resultOfActivity` = :resultOfActivity, `idCategories` = :idCategories WHERE `id` = :id';
+        $updateActivity = database::getInstance()->prepare($query);
+        $updateActivity->bindValue(':name', $this->name, PDO::PARAM_STR);
+        $updateActivity->bindValue(':object', $this->object, PDO::PARAM_STR);
+        $updateActivity->bindValue(':planning', $this->planning, PDO::PARAM_STR);
+        $updateActivity->bindValue(':progress', $this->progress, PDO::PARAM_STR);
+        $updateActivity->bindValue(':resultOfActivity', $this->resultOfActivity, PDO::PARAM_STR);
+        $updateActivity->bindValue(':idCategories', $this->idCategories, PDO::PARAM_INT); 
+        return $updateActivity->execute();
+    }
+     
+    /**
+     * Méthode pour rechercher un atelier 
      */
     public function getActivityByTeacherChoice() {
         $result = array();
@@ -56,11 +69,11 @@ class activities extends database {
     }
 
     /**
-     * Méthode pour afficher une activité
+     * Méthode pour afficher un atelier
      */
 
      public function displayActivity() {
-         $query = 'SELECT `acts`.`id`, `acts`.`name`, `acts`.`object`, `acts`.`planning`, `acts`.`progress`, `acts`.`resultOfActivity`'
+         $query = 'SELECT `acts`.`id`, `acts`.`name`, `acts`.`object`, `acts`.`planning`, `acts`.`progress`, `acts`.`resultOfActivity`, `acts`.`idCategories` '
                 . 'FROM `MOUET_activities` AS `acts`'
                 . 'WHERE `id` = :id';
          $displayActivity = database::getInstance()->prepare($query);
@@ -74,7 +87,7 @@ class activities extends database {
      }
 
 /**
- * Méthode pour afficher sur le profil du professeur les activités qu'il a proposé
+ * Méthode pour afficher sur le profil du professeur les ateliers qu'il a proposé
  */
 
  public function getActivityThatTheTeacherProposed() {
@@ -90,6 +103,24 @@ return $result;
 
 
 
+/**
+ * Méthode pour afficher les ateliers enregistrés en favoris par le professeur
+ */
+ public function getFavoriteActivityOfATeacher() {
+    $result = array();
+    $query = 'SELECT `acts`.`id`, `acts`.`name`, `acts`.`object` '
+    . 'FROM `MOUET_activities` AS `acts` '
+    . 'LEFT JOIN `MOUET_favorites` AS `fav` ON `acts`.`id` = `fav`.`idActivities` '
+    . 'LEFT JOIN `MOUET_teachers` AS `tchs` ON `tchs`.`id` = `fav`.`idTeachers` '
+    . 'WHERE `fav`.`idTeachers` = :idTeachers AND `fav`.`idActivities` = :idActivities ';
+    $displayFavoritesActivities = database::getInstance()->prepare($query);
+    $displayFavoritesActivities->bindValue(':idTeachers', $this->idTeachers, PDO::PARAM_INT);
+    $displayFavoritesActivities->bindValue(':idActivities', $this->idActivities, PDO::PARAM_INT);
+    if ($displayFavoritesActivities->execute()) {
+        $result = $displayFavoritesActivities->fetchAll(PDO::FETCH_OBJ);
+    }
+    return $result; 
+}
 
 
 
