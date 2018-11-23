@@ -54,12 +54,11 @@ include '../controllers/modifyActivityController.php';
                         <p id="error"><?= isset($formError['progress']) ? $formError['progress'] : '' ?></p>
                     </div>
                     <div class="input-field col s10 offset-s2">
-                        <textarea id="resultOfActivity" name="resultOfActivity" class="materialize-textarea"><?= $displayAnActivity->resultOfActivity ?></textarea>
-                        <label for="resultOfActivity">Résultats de l'atelier</label>
+                    <textarea id="mytextarea"><?= $displayAnActivity->resultOfActivity ?></textarea>
                         <p id="error"><?= isset($formError['resultOfActivity']) ? $formError['resultOfActivity'] : '' ?></p>
                     </div>
                     <div class="col s10 col l2 offset-l9">
-                        <button id="submitButton" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="submit">INSCRIPTION</button>
+                        <button id="modifyAct" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="modifyAct">MODIFIER</button>
                     </div>
                 </form>
             </div>
@@ -80,6 +79,7 @@ include '../controllers/modifyActivityController.php';
         <a id="redirectionButton" class="waves-effect waves-light btn-large z-depth-4" href="../index.php">Page d'accueil</a>
     </div>
 <?php } ?>
+<script src="<?= $path ?>cmpsTiny/tinymce.min.js"></script>
 </main>
 <?php include '../footer.php'; ?>
 </body>

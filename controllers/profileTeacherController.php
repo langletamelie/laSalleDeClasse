@@ -35,6 +35,8 @@ if (isset($_POST['submit'])) {
       if (!empty($_SESSION['id'])) {
       $activity = NEW activities();
       $activity->idTeachers = $_SESSION['id'];  
+      $favorite = NEW favorites();
+      $activity->id = $favorite->idActivities;
       $displayFavoritesActivities = $activity->getFavoriteActivityOfATeacher();
       }
 
@@ -47,5 +49,22 @@ if (!empty($_POST['password']) && (!empty($_POST['passwordVerify'])) && $_POST['
     $teacher->modifyPasswordByTeacher();
  } else {
         $formError['password'] = 'La saisie est invalide';
+    }
+}
+
+//suppression d'un atelier proposé par le professeur
+if (isset($_POST['deleteActivity'])) {
+    try {
+        database::getInstance()->beginTransaction();
+       
+        $activity->idTeachers = $_SESSION['id'];
+        $activity->deleteActivity();
+        $actBySchDgr->idActivities = $activity->id;
+        $actBySchDgr->deleteSchDgrByActivity();
+        
+        database::getInstance()->commit();
+    } catch (Exception $error) { // catch error message
+        database::getInstance()->rollback();
+        die($message = 'Il y a eu une erreur');
     }
 }

@@ -12,8 +12,9 @@ $actBySchDgr = NEW activityBySchoolDegree();
 $categoriesList = $category->getCategoriesList();
 $schoolDegreesList = $schoolDegree->getSchoolDegreesList();
 
+$formError = array();
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['modifyAct'])) {
 
     if (!empty($_POST['name'])) {
 //déclaration de la variable avec le htmlspecialchars
@@ -73,7 +74,7 @@ if (isset($_POST['submit'])) {
             foreach ($idSchoolDegrees as $selectSchDgr) {
                 $actBySchDgr->idActivities = $lastId;
                 $actBySchDgr->idSchoolDegrees = $selectBySchDgr;
-                $actBySchDgr->insertSchoolDegreeInTableWhenATeacherAddAnActivity();
+                $actBySchDgr->updateSchoolDegreeWhenAnActivityIsModified();
             }
 
 

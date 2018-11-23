@@ -45,8 +45,20 @@ class activities extends database {
         $updateActivity->bindValue(':progress', $this->progress, PDO::PARAM_STR);
         $updateActivity->bindValue(':resultOfActivity', $this->resultOfActivity, PDO::PARAM_STR);
         $updateActivity->bindValue(':idCategories', $this->idCategories, PDO::PARAM_INT); 
+        $updateActivity->bindValue(':id', $this->id, PDO::PARAM_INT); 
         return $updateActivity->execute();
     }
+
+    /**
+     * Méthode pour supprimer un atelier
+     */
+
+     public function deleteActivity() {
+         $query = 'DELETE FROM `MOUET_activities` WHERE `id` = :id';
+         $activityDelete = database::getInstance()->prepare($query);
+         $activityDelete->bindValue(':id', $this->id, PDO::PARAM_INT);
+         return $activityDelete->execute();
+     }
      
     /**
      * Méthode pour rechercher un atelier 

@@ -24,11 +24,20 @@ class activityBySchoolDegree extends database {
     /**
      * Méthode pour modifier le ou les niveaux scolaires en fonction de l'atelier concerné
      */
-    public function insertSchoolDegreeInTableWhenAteacherAddAnActivity() {
+    public function updateSchoolDegreeWhenAnActivityIsModified() {
         $query = 'UPDATE `MOUET_activityBySchoolDegree` SET `idSchoolDegrees` = :idSchoolDegrees WHERE `idActivities` = :idActivities';
         $modifySchoolDegrees = database::getInstance()->prepare($query);
         $modifySchoolDegrees->bindValue(':idSchoolDegrees', $this->idSchoolDegrees, PDO::PARAM_INT);
+        $modifySchoolDegrees->bindValue(':idActivities', $this->idActivities, PDO::PARAM_INT);
         return $modifySchoolDegrees->execute();
     }
-
+/**
+ * Méthode pour supprimer un atelier et ses niveaux scolaires correspondants
+ */
+public function deleteSchDgrByActivity() {
+    $query = 'DELETE FROM `MOUET_activityBySchoolDegree` WHERE `idActivities` = :idActivities';
+    $schDgrByActDelete = database::getInstance()->prepare($query);
+    $schDgrByActDelete->bindValue(':idActivities', $this->idActivities, PDO::PARAM_INT);
+    return $schDgrByActDelete->execute();
+}
 }
