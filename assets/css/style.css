@@ -11,12 +11,15 @@
 }
 
 body {
-    background-color: #5c5391;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-size: cover;
+    background-color: #90a4ae;
 }
-
+#checkbox {
+    border-color : black !important;
+}
 main {
     flex: 1 0 auto;
 }
@@ -40,43 +43,79 @@ footer {
     font-size: 19px !important;
 }
 
+#formTeacher,
+#searchActivity,
+#formConnection,
+#modifyActivityForm,
+#addActivity {
+   border:2px solid black;
+   border-radius: 20px;
+   margin-left: 125px;
+   margin-right: 125px;
+}
 #formConnection, 
 #searchActivity,
 #addActivity {
     margin-top: 50px;
+    margin-bottom : 50px;
 }
 
 #startButton,
+#connectionButton,
 #submitButton,
-#redirectionButton {
+#inscriptionButton,
+#redirectionButton,
+#modifyAct,
+#addActInFav {
     background-color: #770b1a;
     text-align: center;
-    font-size: 35px !important;
+    font-size: 30px !important;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-label,
-#termsOfUse,
-#certifyTeacher {
-    color: white !important;
-    font-size: 25px !important;
+#startButton,
+#submitButton,
+#connectionButton {
+    margin-left: 50px;
 }
 
+#redirectionButton {
+    margin-left: 150px;
+}
+
+label {
+    color: black !important;
+    font-size: 20px !important;
+}
+
+textarea{
+    color: black !important;
+}
+input {
+    color: black !important;
+    font-size: 20px !important;
+}
+
+h1 {
+    font-size : 45px;
+    text-align: center;
+    margin-right: 50px;
+    color: black;
+}
 p {
     font-size: 20px;
+    color: black !important;
+}
+
+#messageNotConnected {
+font-size: 30px;
 }
 #error{
- color: #770b1a;
+ color: #770b1a !important;
  text-align: center;
 }
 
-#addHisActivities, 
-#favoritesActivities,
-#modifyProfil{
-background-color: blue;
-
-}
 #profilCard {
     border: 2px solid black;
     border-radius:7px;
@@ -86,6 +125,41 @@ background-color: blue;
     text-align: center;
 }
 
+#cardActivity {
+    margin-left : 25px;
+}
 .card-panel {
     text-align: center;
+}
+@media(max-width:990px) {
+    #messageNotConnected,
+    #addActInFav {
+        font-size: 20px !important;
+        }
+        #startButton,
+        #submitButton,  
+        #inscriptionButton,
+        #connectionButton,
+        #redirectionButton {
+            font-size: 20px !important;
+            margin-left: 50px;
+        }
+        #inscriptionButton,
+        #connectionButton {
+            margin-left: 15px;
+        }
+        #formTeacher,
+        #searchActivity,
+        #formConnection,
+        #modifyActivityForm,
+        #addActivity {
+            border: 2px solid black;
+            margin-left: 25px;
+            margin-right: 25px;
+         }
+         h1 {
+            font-size : 35px;
+            text-align: center;
+            margin-right: 0px;
+         }
 }

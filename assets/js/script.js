@@ -7,9 +7,9 @@ $(document).ready(function () {
 //select du choix de la catégorie pour la recherche d'activité
     $('#selectCategories').material_select();
 
-
-//select multiple du choix du ou des niveaux scolaire pour la recherche d'activité
+//select multiple du choix du niveau scolaire pour la recherche d'activité
     $('#selectSchoolDegrees').material_select();
+
 
 
 //textarea du formulaire d'ajout d'ateliers
@@ -24,11 +24,15 @@ $(document).ready(function () {
     $('#resultOfActivity').trigger('autoresize');
 
 //cacher les différentes catégories de la page de profil par défaut
+    $('#profilPictureChoice').hide();
     $('#favoritesActivities').hide();
     $('#addHisActivities').hide();
     $('#modifyProfil').hide();
 
 //pour la page de profil: affichage dynamique des catégories sélectionnées
+$('#profilCard').click(function () {
+    $('#profilPictureChoice').toggle('slow');
+  });
 $('#favoritesActivities-show-hide').click(function () {
   $('#favoritesActivities').toggle('slow');
 });
@@ -43,7 +47,7 @@ $('#selectPicture').material_select();
 });
 //tinymce
 tinymce.init({
-    selector: '#mytextarea',theme: "modern",
+    selector: '.mytextarea',theme: "modern",
     plugins: [
         'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
         'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
@@ -53,11 +57,11 @@ tinymce.init({
         'table contextmenu directionality emoticons paste textcolor responsivefilemanager code'
       
     ],
-    width: 1200,
-    height: 600,
+    width: 1240,
+    height: 400,
     a_plugin_option: true,
     a_configuration_option: 400,
-   // toolbar: 'newdocument | bold | italic | underline | strikethrough | alignleft | aligncenter, alignright, alignjustify, styleselect, formatselect, fontselect, fontsizeselect, cut, copy, paste, bullist, numlist, outdent, indent, blockquote, undo, redo, removeformat, subscript, superscript, responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code '
+   toolbar: 'newdocument | bold | italic | underline | strikethrough | alignleft | aligncenter, alignright, alignjustify, styleselect, formatselect, fontselect, fontsizeselect, cut, copy, paste, bullist, numlist, outdent, indent, blockquote, undo, redo, removeformat, subscript, superscript, responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ',
 
    toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
    toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",

@@ -4,7 +4,7 @@ $username = '';
 $errorList = array();
 $message = '';
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['connectionButton'])) {
 if (!empty($_POST['username'])) {
     $username = htmlspecialchars($_POST['username']);
 } else {

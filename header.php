@@ -8,8 +8,8 @@ include_once 'controllers/headerController.php';
 <html lang="fr" dir="ltr">
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../assets/css/style.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="../assets/css/style.css" />
         <title>La Salle De Classe</title>
     </head>
     <body>

@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
         $schoolDegree = $_POST['selectSchoolDegrees'];
     }
     if (empty($_POST['selectSchoolDegrees'])) {
-        $formError['selectSchoolDegrees'] = 'Veuillez choisir un ou plusieurs niveau scolaire';
+        $formError['selectSchoolDegrees'] = 'Veuillez choisir un niveau scolaire';
     }
 
     if (count($formError) == 0) {
@@ -35,4 +35,9 @@ if (isset($_POST['submit'])) {
         $activity->idSchoolDegrees = $schoolDegree;
         $displayActivity = $activity->getActivityByTeacherChoice();
     }
+    if (empty($displayActivity)) {
+        $message = 'Il n\'y a pas d\'activité pour la sélection demandée';
+    }
+    
+   
 }

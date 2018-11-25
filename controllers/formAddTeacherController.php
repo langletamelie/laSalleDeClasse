@@ -15,7 +15,7 @@ $regexName = '/^[A-Za-zàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂ�
 $formError = array();
 
 //A la validation du formulaire
-if (isset($_POST['submit'])) {
+if (isset($_POST['inscriptionButton'])) {
 //Si lastname existe , faire un test avec la regex correspondante. Si c'est valide on stocke la valeur dans $lastname.
     if (isset($_POST['lastname'])) {
         //déclaration de la variable lastname avec le htmlspecialchars

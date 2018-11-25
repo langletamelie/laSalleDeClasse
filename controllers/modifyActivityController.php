@@ -71,8 +71,8 @@ if (isset($_POST['modifyAct'])) {
             $activity->resultOfActivity = $resultOfActivity;
             $activity->idTeachers = $_SESSION['id'];
             $activity->updateAnActivity();
-            foreach ($idSchoolDegrees as $selectSchDgr) {
-                $actBySchDgr->idActivities = $lastId;
+            foreach ($idSchoolDegrees as $selectBySchDgr) {
+                $actBySchDgr->idActivities = $_GET['id'];
                 $actBySchDgr->idSchoolDegrees = $selectBySchDgr;
                 $actBySchDgr->updateSchoolDegreeWhenAnActivityIsModified();
             }
