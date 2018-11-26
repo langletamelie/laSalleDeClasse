@@ -24,6 +24,8 @@ if (isset($_POST['submit'])) {
     }
 }
 
+
+
 //afficher les ateliers proposés par le professeur
       if (!empty($_SESSION['id'])) {
       $activity = NEW activities();

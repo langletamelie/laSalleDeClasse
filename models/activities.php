@@ -87,7 +87,10 @@ class activities extends database {
      public function displayActivity() {
          $query = 'SELECT `acts`.`id`, `acts`.`name`, `acts`.`object`, `acts`.`planning`, `acts`.`progress`, `acts`.`resultOfActivity`, `acts`.`idCategories` '
                 . 'FROM `MOUET_activities` AS `acts`'
-                . 'WHERE `id` = :id';
+                . 'LEFT JOIN `MOUET_categories` AS `catgrs` ON `acts`.`idCategories` = `catgrs`.`id`'
+                . 'INNER JOIN `MOUET_activityBySchoolDegree` AS `actBySD` ON `actBySD`.`idActivities` = `acts`.`id`'
+                . 'LEFT JOIN `MOUET_schoolDegrees` AS `schDgr` ON `schDgr`.`id` = `actBySD`.`idSchoolDegrees`'
+                . 'WHERE `acts`.`id` = :id';
          $displayActivity = database::getInstance()->prepare($query);
          $displayActivity->bindValue(':id', $this->id, PDO::PARAM_INT);
           if ($displayActivity->execute()) {

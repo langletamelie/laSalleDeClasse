@@ -20,7 +20,7 @@ include '../controllers/modifyActivityController.php';
                     <div class="col l10 offset-l1">
                         <select id="selectCategories" name="selectCategories">
                             <?php foreach ($categoriesList as $categoryDetail) { ?>
-                                <option value="<?= $categoryDetail->id ?>" <?= $categoryDetail->id == $displayAnActivity->idCategories ? 'active' : ""; ?>> <?= $categoryDetail->name ?></option>
+                                <option value="<?= $categoryDetail->id ?>" <?= $categoryDetail->id == $displayAnActivity->idCategories ? 'selected' : ''; ?>> <?= $categoryDetail->name ?></option>
                             <?php } ?>
                         </select>
                         <p id="error"><?= isset($formError['selectCategories']) ? $formError['selectCategories'] : '' ?></p>
@@ -29,7 +29,7 @@ include '../controllers/modifyActivityController.php';
                     <div class="col l10 offset-l1">
                         <select multiple id="selectSchoolDegrees" name="selectSchoolDegrees[]">
                             <?php foreach ($schoolDegreesList as $schoolDegreeDetail) { ?>
-                                <option value="<?= $schoolDegreeDetail->id ?>" ><?= $schoolDegreeDetail->name ?></option>
+                                <option value="<?= $schoolDegreeDetail->id ?>" <?= in_array($schoolDegreeDetail->id, $displaySchDgr) ? 'selected' : ''; ?> ><?= $schoolDegreeDetail->name ?></option>
                             <?php } ?>
                         </select>
                         <p id="error"><?= isset($formError['selectSchoolDegrees']) ? $formError['selectSchoolDegrees'] : '' ?></p>

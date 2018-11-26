@@ -1,16 +1,20 @@
 <?php
 
-if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
-    $activity = NEW activities();
-    $activity->id = $_GET['id'];
-    $displayAnActivity = $activity->displayActivity();
-}
 $category = NEW categories();
 $schoolDegree = NEW schoolDegrees();
 $actBySchDgr = NEW activityBySchoolDegree();
 
+if (!empty($_GET['id']) && is_numeric($_GET['id'])) {
+    $activity = NEW activities();
+    $activity->id = $_GET['id'];
+    $displayAnActivity = $activity->displayActivity();
+    $actBySchDgr->idActivities = $_GET['id'];
+    $displaySchDgr = $actBySchDgr->getAllTheSchoolDegreesIds();
+}
+
 $categoriesList = $category->getCategoriesList();
 $schoolDegreesList = $schoolDegree->getSchoolDegreesList();
+
 
 $formError = array();
 
@@ -61,8 +65,9 @@ if (isset($_POST['modifyAct'])) {
     }
 
     if (count($formError) == 0) {
-        try {
+               try {
             database::getInstance()->beginTransaction();
+
             $activity->name = $name;
             $activity->idCategories = $idCategories;
             $activity->object = $object;
@@ -71,17 +76,17 @@ if (isset($_POST['modifyAct'])) {
             $activity->resultOfActivity = $resultOfActivity;
             $activity->idTeachers = $_SESSION['id'];
             $activity->updateAnActivity();
+            $actBySchDgr->idActivities = $_GET['id'];
+            $actBySchDgr->deleteSchDgrByActivity();
             foreach ($idSchoolDegrees as $selectBySchDgr) {
                 $actBySchDgr->idActivities = $_GET['id'];
                 $actBySchDgr->idSchoolDegrees = $selectBySchDgr;
-                $actBySchDgr->updateSchoolDegreeWhenAnActivityIsModified();
+                $actBySchDgr->insertSchoolDegreeAndIdActivitiesInTableWhenATeacherAddAnActivity();
             }
-
-
             database::getInstance()->commit();
-        } catch (Exception $e) { // catch error message
+        } catch (Exception $error) { // catch error message
             database::getInstance()->rollback();
-            die('Erreur : ' . $e->getMessage());
+            die($message = 'La modification n\'as pas été prise en compte');
         }
     }
 }

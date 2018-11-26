@@ -13,7 +13,7 @@ include_once 'controllers/headerController.php';
         <title>La Salle De Classe</title>
     </head>
     <body>
-        <img class="responsive-img" src="../assets/img/banniere3.jpg" id="classroom" />
+        <img class="responsive-img" src="../assets/img/banniere4.jpg" id="classroom" />
         <main>
         <?php if (isset($_SESSION['isConnect'])) { ?>
             <nav>
