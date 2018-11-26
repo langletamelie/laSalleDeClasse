@@ -40,4 +40,23 @@ public function checkIfTeacherAlreadyAddAnActivityInFavorite() {
 }
 
 
+/**
+ * Méthode pour afficher les ateliers enregistrés en favoris par le professeur
+ */
+public function getFavoriteActivityOfATeacher() {
+    $result = array();
+    $query = 'SELECT `acts`.`id`, `acts`.`name`, `acts`.`object` '
+    . 'FROM `MOUET_activities` AS `acts` '
+    . 'LEFT JOIN `MOUET_favorites` AS `fav` ON `acts`.`id` = `fav`.`idActivities` '
+    . 'LEFT JOIN `MOUET_teachers` AS `tchs` ON `tchs`.`id` = `fav`.`idTeachers` '
+    . 'WHERE `fav`.`idTeachers` = :idTeachers AND `fav`.`idActivities` = :idActivities ';
+    $displayFavoritesActivities = database::getInstance()->prepare($query);
+    $displayFavoritesActivities->bindValue(':idTeachers', $this->idTeachers, PDO::PARAM_INT);
+    $displayFavoritesActivities->bindValue(':idActivities', $this->idActivities, PDO::PARAM_INT);
+    if ($displayFavoritesActivities->execute()) {
+        $result = $displayFavoritesActivities->fetchAll(PDO::FETCH_OBJ);
+    }
+    return $result; 
+}
+
  }

@@ -49,11 +49,22 @@ include '../controllers/profileTeacherController.php';
                         <div class="card-action">
                             <a href="displayActivity.php?id=<?= $activityDetail->id ?>">Voir l'activité</a>
                             <a href="modifyActivity.php?id=<?= $activityDetail->id ?>">Modifier l'activité</a>
-                            <button id="deleteActivity" class="btn waves-effect waves-light red accent-4 z-depth-4" type="submit" name="deleteActivity">SUPPRIMER</button>
+                            <!-- modale -->
+                            <a class="modal-trigger btn waves-effect waves-light red accent-4 z-depth-4" href="#modal1">SUPPRIMER</a>
                         </div>
                     </div>
                 <?php } ?>
             </div>
+<!-- structure de la modale -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <p>Etes-vous sûr de vouloir supprimer l'atelier ?</p>
+    <form action="profileTeacher.php?id=<?= $activityDetail->id ?>" method="POST">
+    <button id="deleteTeacherButton" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="deleteTeacherButton">SUPPRIMER</button>
+    <button id="cancelButton" class="modal-action modal-close btn waves-effect waves-light btn-large z-depth-4" type="submit" name="cancelButton">ANNULER</button>
+    </form>
+  </div>
+</div>
             <div id="profilPictureChoice" class="blue-grey darken-1">
                 <form id="choosePictureProfil" class="col s10" action="profileTeacher.php" method="POST">
                     <label class="col s10 offset-s2" for="selectPicture">Choissisez une photo de profil</label>

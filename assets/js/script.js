@@ -10,8 +10,6 @@ $(document).ready(function () {
 //select multiple du choix du niveau scolaire pour la recherche d'activité
     $('#selectSchoolDegrees').material_select();
 
-
-
 //textarea du formulaire d'ajout d'ateliers
 //textarea de la préparation d'atelier
     $('#planning').val('');
@@ -45,29 +43,32 @@ $('#modifyProfil-show-hide').click(function () {
 //select du choix de la photo de profil
 $('#selectPicture').material_select();
 });
-//tinymce
-tinymce.init({
-    selector: '.mytextarea',theme: "modern",
-    plugins: [
-        'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-        'save table contextmenu directionality emoticons template paste textcolor',
-        'advlist autolink link image lists charmap print preview hr anchor pagebreak',
-        'searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking',
-        'table contextmenu directionality emoticons paste textcolor responsivefilemanager code'
-      
-    ],
-    width: 1240,
-    height: 400,
-    a_plugin_option: true,
-    a_configuration_option: 400,
-   toolbar: 'newdocument | bold | italic | underline | strikethrough | alignleft | aligncenter, alignright, alignjustify, styleselect, formatselect, fontselect, fontsizeselect, cut, copy, paste, bullist, numlist, outdent, indent, blockquote, undo, redo, removeformat, subscript, superscript, responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ',
+//fenêtre modale
+$('.modal').modal();
 
-   toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
-   toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
-   image_advtab: true ,
-   
-   external_filemanager_path:"../cmpsTiny/filemanager/filemanager/",
-   filemanager_title:"Responsive Filemanager" ,
-   external_plugins: { "filemanager" : "filemanager/filemanager/plugin.min.js"}
-});
+//tinymce
+//tinymce.init({
+//    selector: '.mytextarea',theme: "modern",
+//    plugins: [
+//        'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+//        'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+//        'save table contextmenu directionality emoticons template paste textcolor',
+//        'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+//        'searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking',
+//        'table contextmenu directionality emoticons paste textcolor responsivefilemanager code'
+//      
+//    ],
+//    width: 1240,
+//    height: 400,
+//    a_plugin_option: true,
+//    a_configuration_option: 400,
+//   toolbar: 'newdocument | bold | italic | underline | strikethrough | alignleft | aligncenter, alignright, alignjustify, styleselect, formatselect, fontselect, fontsizeselect, cut, copy, paste, bullist, numlist, outdent, indent, blockquote, undo, redo, removeformat, subscript, superscript, responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ',
+//
+//   toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+//   toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+//   image_advtab: true ,
+//   
+//   external_filemanager_path:"../cmpsTiny/filemanager/filemanager/",
+//   filemanager_title:"Responsive Filemanager" ,
+//   external_plugins: { "filemanager" : "filemanager/filemanager/plugin.min.js"}
+//});

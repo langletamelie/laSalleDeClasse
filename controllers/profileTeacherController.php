@@ -24,14 +24,19 @@ if (isset($_POST['submit'])) {
     }
 }
 
-
-
 //afficher les ateliers proposés par le professeur
       if (!empty($_SESSION['id'])) {
       $activity = NEW activities();
       $activity->idTeachers = $_SESSION['id'];
       $displayActivity = $activity->getActivityThatTheTeacherProposed();
       }
+
+//suppression d'un atelier proposé par le professeur
+if (isset($_POST['deleteTeacherButton'])) {
+    $activity->id = $_GET['id'];
+    $activity->idTeachers = $_SESSION['id'];
+    $activity->deleteActivity();
+}
 
 //afficher les ateliers favoris du professeur
       if (!empty($_SESSION['id'])) {
@@ -54,19 +59,3 @@ if (!empty($_POST['password']) && (!empty($_POST['passwordVerify'])) && $_POST['
     }
 }
 
-//suppression d'un atelier proposé par le professeur
-if (isset($_POST['deleteActivity'])) {
-    try {
-        database::getInstance()->beginTransaction();
-       
-        $activity->idTeachers = $_SESSION['id'];
-        $activity->deleteActivity();
-        $actBySchDgr->idActivities = $activity->id;
-        $actBySchDgr->deleteSchDgrByActivity();
-        
-        database::getInstance()->commit();
-    } catch (Exception $error) { // catch error message
-        database::getInstance()->rollback();
-        die($message = 'Il y a eu une erreur');
-    }
-}
