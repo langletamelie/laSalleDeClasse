@@ -2,7 +2,6 @@
 include '../header.php';
 include '../controllers/addActivityController.php';
 ?>
-
 <?php if (isset($_SESSION['isConnect'])) { ?>
     <div class="container-fluid">
         <div class="row">
@@ -54,7 +53,7 @@ include '../controllers/addActivityController.php';
                     <p id="error"><?= isset($formError['resultOfActivity']) ? $formError['resultOfActivity'] : '' ?></p>
                 </div>
                 <div class="col l2 offset-l8">
-                    <button id="submitButton" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="submit">AJOUTER</button>
+                    <button id="addActivityButton" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="addActivityButton">AJOUTER</button>
                 </div>
             </form>
             <p id="error"><?= isset($message) ? $message : '' ?></p>

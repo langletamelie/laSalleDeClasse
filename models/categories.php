@@ -15,8 +15,7 @@ class categories extends database {
  */
     public function getCategoriesList() {
         $isObjectResult = array();
-        $PDOResult = database::getInstance()->query('SELECT `id`, `name` FROM `MOUET_categories` ORDER BY `name`');
-             
+        $PDOResult = database::getInstance()->query('SELECT `id`, `name` FROM `MOUET_categories` ORDER BY `name`');   
         if (is_object($PDOResult)) {
             $isObjectResult = $PDOResult->fetchAll(PDO::FETCH_OBJ);
         } 

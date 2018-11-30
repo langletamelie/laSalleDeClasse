@@ -15,18 +15,19 @@ include '../controllers/profileTeacherController.php';
                     <p><?= $_SESSION['username'] ?></p>
                 </div>
             </div>
-            <div class="card-panel teal blue-grey darken-2" id="favoritesActivities-show-hide">
+            <div class="card-panel teal blue-grey darken-1" id="favoritesActivities-show-hide">
                 <p>MES ATELIERS PRÉFÉRÉS</p>
             </div>
-            <div class="card-panel teal blue-grey darken-2" id="addHisActivities-show-hide">
+            <div class="card-panel teal blue-grey darken-1" id="addHisActivities-show-hide">
                 <p>LES ATELIERS QUE J'AI PROPOSÉ</p>
             </div>
-            <div class="card-panel teal blue-grey darken-2" id="modifyProfil-show-hide">
+            <div class="card-panel teal blue-grey darken-1" id="modifyProfil-show-hide">
                 <p>MODIFIER MON COMPTE</p>
             </div>
         </div>
         <div class="col s12 m8 l9">
             <div id="favoritesActivities"> 
+            <p>HELLO</p>
                 <?php foreach ($displayFavoritesActivities as $favoriteActivityDetail) { ?>
                     <div class="card blue-grey darken-1 col s12 m6 l5 offset-l1">
                         <div class="card-content white-text">
@@ -60,7 +61,7 @@ include '../controllers/profileTeacherController.php';
   <div class="modal-content">
     <p>Etes-vous sûr de vouloir supprimer l'atelier ?</p>
     <form action="profileTeacher.php?id=<?= $activityDetail->id ?>" method="POST">
-    <button id="deleteTeacherButton" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="deleteTeacherButton">SUPPRIMER</button>
+    <button id="deleteActivityButton" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="deleteActivityButton">SUPPRIMER</button>
     <button id="cancelButton" class="modal-action modal-close btn waves-effect waves-light btn-large z-depth-4" type="submit" name="cancelButton">ANNULER</button>
     </form>
   </div>
@@ -78,7 +79,7 @@ include '../controllers/profileTeacherController.php';
                         <p id="error"><?= isset($formError['selectPicture']) ? $formError['selectPicture'] : '' ?></p>
                     </div>
                     <div class="col s10  l2 offset-l9">
-                        <button id="submitButton" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="submit">CHANGER</button>
+                        <button id="changePictureSubmit" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="changePictureSubmit">CHANGER</button>
                     </div>
                 </form>
             </div>
@@ -95,7 +96,7 @@ include '../controllers/profileTeacherController.php';
                         <p id="error"><?= isset($formError['passwordVerify']) ? $formError['passwordVerify'] : '' ?></p>
                     </div>
                     <div class="col s10 l2 offset-l9">
-                        <button id="submitButton" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="changePasswordSubmit">CHANGER</button>
+                        <button id="changePasswordSubmit" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="changePasswordSubmit">CHANGER</button>
                     </div>
                 </form>
             </div>

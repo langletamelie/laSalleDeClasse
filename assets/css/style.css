@@ -1,5 +1,5 @@
 .nav-wrapper {
-    background-color: #4e0b16;
+    background-color: #4E0B16;
 }
 
 #buttonNavbarConnected {
@@ -16,10 +16,13 @@ body {
     flex-direction: column;
     background-size: cover;
     background-color: #90a4ae;
+    background-image: url(/assets/img/red5.jpg);
 }
+
 #checkbox {
     border-color : black !important;
 }
+
 main {
     flex: 1 0 auto;
 }
@@ -34,12 +37,12 @@ footer {
 }
 
 #navBtn {
-    background-color: #770b1a;
+    background-color: #770B1A;
     font-size: 30px !important;
 }
 
 #navBtnConnected {
-    background-color: #770b1a;
+    background-color: #770B1A;
     font-size: 19px !important;
 }
 
@@ -68,7 +71,12 @@ footer {
 #inscriptionButton,
 #redirectionButton,
 #modifyAct,
-#addActInFav {
+#changePictureSubmit,
+#addActivityButton,
+#addActInFav,
+#deleteActivityButton,
+#cancelButton,
+#changePasswordSubmit {
     background-color: #770b1a;
     text-align: center;
     font-size: 30px !important;
@@ -83,7 +91,7 @@ footer {
 }
 
 #redirectionButton {
-    margin-left: 150px;
+    margin-left: 750px;
 }
 
 label {
@@ -105,6 +113,7 @@ h1 {
     margin-right: 50px;
     color: black;
 }
+
 p {
     font-size: 20px;
     color: black !important;
@@ -127,16 +136,28 @@ font-size: 30px;
     text-align: center;
 }
 
+h1, 
+#welcome,
+#messageNotConnected {
+    color : white !important;
+}
+
+#messageNotConnected {
+margin-left: 500px;
+}
+
 #cardActivity {
     margin-left : 25px;
 }
 .card-panel {
     text-align: center;
+    background-color : #747563 !important;
 }
 @media(max-width:990px) {
     #messageNotConnected,
     #addActInFav {
         font-size: 20px !important;
+        margin-left: 20px;
         }
         #startButton,
         #submitButton,  
@@ -144,7 +165,7 @@ font-size: 30px;
         #connectionButton,
         #redirectionButton {
             font-size: 20px !important;
-            margin-left: 50px;
+            margin-left: 50px !important;
         }
         #inscriptionButton,
         #connectionButton {
@@ -164,4 +185,22 @@ font-size: 30px;
             text-align: center;
             margin-right: 0px;
          }
+}
+@media(max-width:1700px) {
+    #buttonNavbarConnected {
+        padding-left: 150px;
+    }
+    
+    #buttonNavbarNotConnected {
+        padding-left: 250px;
+    }
+    #redirectionButton {
+        margin-left: 350px;
+    }
+    #messageNotConnected {
+        margin-left: 100px;
+    }
+    #buttonNavbarConnected {
+        padding-left: 0px;
+    }
 }

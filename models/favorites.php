@@ -39,7 +39,18 @@ public function checkIfTeacherAlreadyAddAnActivityInFavorite() {
  return $check;
 }
 
-
+/**
+ * Méthode pour récupérer les id de idActivities 
+ */
+public function getAllTheActivitiesIds() {
+    $query = 'SELECT `MOUET_favorites`.`idActivities` FROM `MOUET_favorites` WHERE `idTeachers` = :idTeachers';
+    $getAllActId = database::getInstance()->prepare($query);
+    $getAllActId->bindValue(':idTeachers', $this->idTeachers, PDO::PARAM_INT);
+    if ($getAllActId->execute()) {
+        $result = $getAllActId->fetchAll(PDO::FETCH_COLUMN,0);
+    }
+    return $result;
+}
 /**
  * Méthode pour afficher les ateliers enregistrés en favoris par le professeur
  */

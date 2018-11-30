@@ -4,7 +4,7 @@
  * Création de la classe activities
  */
 class activities extends database {
-
+// déclaration des paramètres de la classe activities
     public $id;
     public $name;
     public $object;
@@ -13,7 +13,6 @@ class activities extends database {
     public $resultOfActivity;
     public $idCategories;
     public $idTeachers;
- 
 
     /**
      * Méthode pour ajouter un atelier

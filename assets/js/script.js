@@ -23,7 +23,7 @@ $(document).ready(function () {
 
 //cacher les différentes catégories de la page de profil par défaut
     $('#profilPictureChoice').hide();
-    $('#favoritesActivities').hide();
+   // $('#favoritesActivities').hide();
     $('#addHisActivities').hide();
     $('#modifyProfil').hide();
 
