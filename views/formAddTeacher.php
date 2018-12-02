@@ -19,6 +19,7 @@ include '../controllers/formAddTeacherController.php';
     <div class="container-fluid">
         <div class="row" id="formAddTeacher">
             <h1>Formulaire d'inscription</h1>
+            <!-- Formulaire d'inscription de l'utilisateur-->
             <form id="formTeacher" class="col l10 blue-grey darken-1" action="#" method="POST">
                 <div class="input-field col l10 offset-l1">
                     <input id="lastname" name="lastname" type="text" value="<?= isset($lastname) ? $lastname : '' ?>" />
@@ -55,6 +56,7 @@ include '../controllers/formAddTeacherController.php';
                     <label for="passwordVerify">Confirmer le mot de passe</label>
                     <p id="error"><?= isset($formError['passwordVerify']) ? $formError['passwordVerify'] : '' ?></p>
                 </div>
+                <!-- 2 checkbox, une pour la certification de profession, et l'autre pour les conditions d'utilisation -->
                 <div class="col l10 offset-l1">
                     <p>
                         <input type="checkbox" id="certifyTeacher" name="certifyTeacher" value="certifyTeacher" />
@@ -69,6 +71,7 @@ include '../controllers/formAddTeacherController.php';
                     </p>
                     <p id="error"><?= isset($formError['termsOfUse']) ? $formError['termsOfUse'] : '' ?></p>
                 </div>
+                <!-- Bouton de validation de formulaire -->
                 <div class="col l2 offset-l8">
                     <button id="inscriptionButton" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="inscriptionButton">INSCRIPTION</button>
                 </div>

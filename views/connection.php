@@ -2,10 +2,10 @@
 include '../header.php';
 include '../controllers/connectionController.php';
 ?>
-
 <div class="container-fluid">
 <h1>Connectez-vous</h1>
     <div class="row">
+        <!-- Formulaire de connexion, demandant le nom d'utilisateur et le mot de passe -->
         <form id="formConnection" class="col l10 blue-grey darken-1" action="#" method="POST">
             <div class="input-field col l10 offset-l1">
                 <input id="username" name="username" type="text">
@@ -23,7 +23,8 @@ include '../controllers/connectionController.php';
         </form>
     </div>
 </div>
-<p><?= $message ?></p>
+<!-- affichage d'un des messages d'erreur de connexion si besoin -->
+<p id="connectionError"><?= $message ?></p>
 </main>
 <?php include '../footer.php'; ?>
 </body>

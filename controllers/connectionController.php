@@ -1,5 +1,5 @@
 <?php
-
+//déclaration des variables
 $username = '';
 $errorList = array();
 $message = '';
@@ -10,7 +10,6 @@ if (!empty($_POST['username'])) {
 } else {
     $errorList['username'] = 'Erreur dans la saisie de votre identifiant';
 }
-
 if (!empty($_POST['password'])) {
     $password = $_POST['password'];
 } else {

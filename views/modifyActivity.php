@@ -2,8 +2,9 @@
 include '../header.php';
 include '../controllers/modifyActivityController.php';
 ?>
-
+<!-- si l'utilisateur est connecté on affiche la page -->
 <?php if (isset($_SESSION['isConnect'])) { ?>
+    <!-- Si la modification de l'atelier a eu lieu on affiche un message de confirmation-->
     <?php if (isset($_POST['submit']) && (count($formError) === 0)) { ?> 
         <p id="ok">Les données modifiées ont été enregistrées</p>           
     <?php } else { ?>   
@@ -54,6 +55,7 @@ include '../controllers/modifyActivityController.php';
                         <label for="resultOfActivity">Résultats de l'atelier</label>
                         <p id="error"><?= isset($formError['resultOfActivity']) ? $formError['resultOfActivity'] : '' ?></p>
                     </div>
+                    <!-- Bouton de modification de l'atelier -->
                     <div class="col l2 offset-l8">
                         <button id="modifyAct" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="modifyAct">MODIFIER</button>
                     </div>
@@ -62,6 +64,7 @@ include '../controllers/modifyActivityController.php';
         </div>
     <?php } ?>
 <?php } else { ?>
+      <!-- Si une personne est sur la page mais qu'elle n'est pas connectée: affichage d'un message et d'un bouton dirigeant vers la page d'accueil -->
     <div>
         <p id="messageNotConnected">Vous devez être connecté pour accéder à cette partie du site.</p>
         <a id="redirectionButton" class="waves-effect waves-light btn-large z-depth-4" href="../index.php">Page d'accueil</a>

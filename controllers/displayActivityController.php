@@ -17,7 +17,7 @@ if (isset($_POST['addActInFav'])) {
     $check = $favorite->checkIfTeacherAlreadyAddAnActivityInFavorite();
     
     //si l'activité n'a pas déjà été ajouter en favori, elle le devient
-    if ($check === 0) {
+    if ($check == 0) {
         return $favorite->insertActivityAndTeacherInTableWhenATeacherAddAnActivityInHisFavorites();
     }
 }

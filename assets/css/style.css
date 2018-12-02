@@ -50,7 +50,9 @@ footer {
 #searchActivity,
 #formConnection,
 #modifyActivityForm,
-#addActivity {
+#addActivity,
+#choosePictureProfil,
+#changePasswordForm {
    border:2px solid black;
    box-shadow: 0.3px 0.3px black, 0.5em 0 0.5em black, -0.5em 0 0.5em black;
    border-radius: 20px;
@@ -114,6 +116,9 @@ h1 {
     color: black;
 }
 
+h2 {
+    font-size : 30px;
+}
 p {
     font-size: 20px;
     color: black !important;
@@ -137,8 +142,13 @@ font-size: 30px;
 }
 
 h1, 
-#welcome,
-#messageNotConnected {
+.welcome,
+#messageNotConnected,
+#error,
+#errorFav,
+#okFav,
+#actvitityMessage,
+#connectionError {
     color : white !important;
 }
 
@@ -153,11 +163,12 @@ margin-left: 500px;
     text-align: center;
     background-color : #747563 !important;
 }
+
 @media(max-width:990px) {
     #messageNotConnected,
     #addActInFav {
-        font-size: 20px !important;
-        margin-left: 20px;
+        font-size: 18px !important;
+        margin-left: 0px !important;
         }
         #startButton,
         #submitButton,  
@@ -175,7 +186,9 @@ margin-left: 500px;
         #searchActivity,
         #formConnection,
         #modifyActivityForm,
-        #addActivity {
+        #addActivity,
+        #choosePictureProfil,
+        #changePasswordForm {
             border: 2px solid black;
             margin-left: 25px;
             margin-right: 25px;
@@ -185,8 +198,15 @@ margin-left: 500px;
             text-align: center;
             margin-right: 0px;
          }
+         h2 {
+            font-size : 25px;
+            text-align: center;
+         }
+         #showAct {
+            font-size: 13px;
+        }
 }
-@media(max-width:1700px) {
+@media(max-width:1500px) {
     #buttonNavbarConnected {
         padding-left: 150px;
     }
