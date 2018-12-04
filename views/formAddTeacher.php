@@ -67,7 +67,8 @@ include '../controllers/formAddTeacherController.php';
                 <div class="col l10 offset-l1">
                     <p>
                         <input type="checkbox" id="termsOfUse" name="termsOfUse" value="termsOfUse" />
-                        <label for="termsOfUse">J'ai lu et accepté les conditions d'utilisation</label>
+                        <!-- modale d'affichage des conditions générales d'utilisation -->
+                        <label for="termsOfUse">J'ai lu et accepté les conditions générales d'utilisation (cliquez <a class="modal-trigger" href="#modalCGU">ici</a> pour les lire)</label>
                     </p>
                     <p id="error"><?= isset($formError['termsOfUse']) ? $formError['termsOfUse'] : '' ?></p>
                 </div>
@@ -78,6 +79,16 @@ include '../controllers/formAddTeacherController.php';
             </form>
         </div>
     </div>
+                <!-- structure de la modale -->
+                <div id="modalCGU" class="modal">
+                <div class="modal-content">
+                    <p>Conditions générales d'utilisation</p>
+                    <form action="formAddTeacher.php" method="POST">
+                       <!-- bouton permettant de fermer la fenêtre modale -->
+                        <button id="closeModale" class="modal-action modal-close btn waves-effect waves-light btn-large z-depth-4" type="submit" name="closeModale">FERMER</button>
+                    </form>
+                </div>
+            </div>
 <?php } ?>
 </main>
 <?php include '../footer.php'; ?>

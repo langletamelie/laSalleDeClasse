@@ -28,7 +28,6 @@ include '../controllers/profileTeacherController.php';
         </div>
         <div class="col s12 m8 l9">
             <div id="favoritesActivities"> 
-                <p>HELLO</p>
                 <!--Boucle permettant l'affichage des favoris enregistrés par l'utilisateur -->
                 <?php foreach ($displayFavoritesActivities as $favoriteActivityDetail) { ?>
                     <div class="card blue-grey darken-1 col s12 m6 l5 offset-l1">
@@ -38,7 +37,7 @@ include '../controllers/profileTeacherController.php';
                         </div>
                         <!-- bouton permettant l'affichage complet de l'atelier -->
                         <div class="card-action">
-                            <a href="displayActivity.php?id=<?= $activityDetail->id ?>">Voir l'activité</a>
+                            <a href="displayActivity.php?id=<?= $favoriteActivityDetail->id ?>">Voir l'activité</a>
                         </div>
                     </div>
                 <?php } ?>
@@ -52,8 +51,8 @@ include '../controllers/profileTeacherController.php';
                             <p>Objectif de l'activité : <?= $activityDetail->object ?></p>
                         </div>
                         <div class="card-action">
-                            <a href="displayActivity.php?id=<?= $activityDetail->id ?>">Voir l'activité</a>
-                           <a href="modifyActivity.php?id=<?= $activityDetail->id ?>">Modifier l'activité</a>
+                           <a href="displayActivity.php?id=<?= $activityDetail->id ?>">VOIR</a>
+                           <a href="modifyActivity.php?id=<?= $activityDetail->id ?>">MODIFIER</a>
                             <!-- modale de la suppression d'atelier -->
                             <a class="modal-trigger btn waves-effect waves-light red accent-4 z-depth-4" href="#modal1">SUPPRIMER</a>
                         </div>
@@ -81,7 +80,7 @@ include '../controllers/profileTeacherController.php';
                             <option value="" disabled selected></option>
                             <!-- boucle affichant toutes les photos de profil disponibles -->
                             <?php foreach ($pictureProfilList as $pictureDetail) { ?>
-                                <option value="<?= $pictureDetail->id ?>"data-icon="../assets/picturesProfil/<?= $pictureDetail->name ?>.jpg" class="left"></option>
+                                <option value="<?= $pictureDetail->id ?>" data-icon="../assets/picturesProfil/<?= $pictureDetail->name ?>.jpg" class="left"></option>
                             <?php } ?>
                         </select>
                         <p id="error"><?= isset($formError['selectPicture']) ? $formError['selectPicture'] : '' ?></p>

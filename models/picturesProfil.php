@@ -22,9 +22,4 @@ public function getPicturesProfilList() {
     } 
     return $isObjectResult;
 }
-
-
-
-
-
  }

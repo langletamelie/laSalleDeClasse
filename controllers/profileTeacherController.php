@@ -15,7 +15,7 @@ if (!empty($_SESSION['id'])) {
 }
 
 //select pour choisir une photo de profil
-if (isset($_POST['submit'])) {
+if (isset($_POST['changePictureSubmit'])) {
     if (!empty($_POST['selectPicture'])) {
         $pictureProfil = $_POST['selectPicture'];
         $teacher->idPicturesProfil = $pictureProfil;
@@ -43,9 +43,7 @@ if (isset($_POST['deleteActivityButton'])) {
 
 //afficher les ateliers favoris du professeur
 if (!empty($_SESSION['id'])) {
-    $activity->idTeachers = $_SESSION['id'];
-    $displayFav = $favorite->getAllTheActivitiesIds();
-
+    $favorite->idTeachers = $_SESSION['id'];
     $displayFavoritesActivities = $favorite->getFavoriteActivityOfATeacher();
 }
 

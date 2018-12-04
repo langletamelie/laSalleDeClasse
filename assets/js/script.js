@@ -23,28 +23,43 @@ $(document).ready(function () {
 
 //cacher les différentes catégories de la page de profil par défaut
     $('#profilPictureChoice').hide();
-   // $('#favoritesActivities').hide();
+    $('#favoritesActivities').hide();
     $('#addHisActivities').hide();
     $('#modifyProfil').hide();
 
 //pour la page de profil: affichage dynamique des catégories sélectionnées
 $('#profilCard').click(function () {
     $('#profilPictureChoice').toggle('slow');
+    $('#favoritesActivities').hide();
+    $('#addHisActivities').hide();
+    $('#modifyProfil').hide();
   });
 $('#favoritesActivities-show-hide').click(function () {
   $('#favoritesActivities').toggle('slow');
+  $('#profilPictureChoice').hide();
+  $('#addHisActivities').hide();
+  $('#modifyProfil').hide();
 });
 $('#addHisActivities-show-hide').click(function () {
   $('#addHisActivities').toggle('slow');
+  $('#profilPictureChoice').hide();
+  $('#favoritesActivities').hide();
+  $('#modifyProfil').hide();
 });
 $('#modifyProfil-show-hide').click(function () {
   $('#modifyProfil').toggle('slow');
+  $('#profilPictureChoice').hide();
+  $('#favoritesActivities').hide();
+  $('#addHisActivities').hide();
+
 });
 //select du choix de la photo de profil
 $('#selectPicture').material_select();
 });
 //fenêtre modale
 $('.modal').modal();
+
+
 
 //tinymce
 //tinymce.init({

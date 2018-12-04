@@ -32,8 +32,11 @@ main {
 }
 
 footer {
-    background-color: rgba(255,255,255,0.3);
-    opacity: 0.1;
+    background-color: #4E0B16;
+}
+
+#footerText {
+    color : white !important;
 }
 
 #navBtn {
@@ -116,12 +119,18 @@ h1 {
     color: black;
 }
 
+a {
+color : white !important;
+}
+
 h2 {
     font-size : 30px;
 }
-p {
+p,
+pre {
     font-size: 20px;
     color: black !important;
+    font-family: roboto;
 }
 
 #messageNotConnected {
@@ -141,6 +150,9 @@ font-size: 30px;
     text-align: center;
 }
 
+a {
+ color: red;
+}
 h1, 
 .welcome,
 #messageNotConnected,
