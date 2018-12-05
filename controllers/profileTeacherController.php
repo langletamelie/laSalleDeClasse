@@ -54,8 +54,9 @@ if (isset($_POST['changePasswordSubmit'])) {
         $teacher->password = $password;
         $teacher->id = $_SESSION['id'];
         $teacher->modifyPasswordByTeacher();
+        $message = 'Votre mot de passe a bien été changé';
     } else {
-        $formError['password'] = 'La saisie est invalide';
+        $message = 'La saisie est invalide';
     }
 }
 

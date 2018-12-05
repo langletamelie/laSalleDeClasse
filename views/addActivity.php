@@ -7,6 +7,8 @@ include '../controllers/addActivityController.php';
     <div class="container-fluid">
         <div class="row">
             <h1>Ajouter un atelier</h1>
+             <!-- message informant si l'activité à été ajouté ou s'il y a eu une erreur-->
+             <p id="actvitityMessage"><?= isset($message) ? $message : '' ?></p>
             <!-- Formulaire d'ajout d'atelier -->
             <form id="addActivity" class="col l10 blue-grey darken-1" action="#" method="POST">
                 <div class="input-field col l10 offset-l1">
@@ -64,8 +66,6 @@ include '../controllers/addActivityController.php';
                     <button id="addActivityButton" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="addActivityButton">AJOUTER</button>
                 </div>
             </form>
-            <!-- message informant si l'activité à été ajouté ou s'il y a eu une erreur-->
-            <p id="actvitityMessage"><?= isset($message) ? $message : '' ?></p>
         </div>
     </div>
 <?php } else { ?>

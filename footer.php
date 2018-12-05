@@ -5,7 +5,7 @@
 <footer>
     <div class="container-fluid">
         <div class="row">
-           <p id="footerText">Copyright La Salle De Classe</p>
+           <p id="footerText">&copy; La Salle De Classe 2018</p>
         </div>
     </div>
 </footer>

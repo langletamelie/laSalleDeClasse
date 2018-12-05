@@ -79,6 +79,8 @@ if (isset($_POST['modifyAct'])) {
                 $actBySchDgr->insertSchoolDegreeAndIdActivitiesInTableWhenATeacherAddAnActivity();
             }
             database::getInstance()->commit();
+            $message = 'Votre atelier a été modifié';
+            //si la transaction a réussi, on affiche un message de réusite
         } catch (Exception $error) { 
             database::getInstance()->rollback();
             die($message = 'La modification n\'as pas été prise en compte');

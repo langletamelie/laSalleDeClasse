@@ -96,12 +96,10 @@ include '../controllers/profileTeacherController.php';
                     <div class="input-field col s10 offset-s2">
                         <input id="password" name="password" type="password" value="<?= isset($password) ? $password : '' ?>" />
                         <label for="password">Nouveau mot de passe</label>
-                        <p id="error"><?= isset($formError['password']) ? $formError['password'] : '' ?></p>
                     </div>
                     <div class="input-field col s10 offset-s2">
                         <input id="passwordVerify" name="passwordVerify" type="password" value="<?= isset($passwordVerify) ? $passwordVerify : '' ?>" />
                         <label for="passwordVerify">Confirmer le nouveau mot de passe</label>
-                        <p id="error"><?= isset($formError['passwordVerify']) ? $formError['passwordVerify'] : '' ?></p>
                     </div>
                     <div class="col s10 l2 offset-l9">
                         <button id="changePasswordSubmit" class="btn waves-effect waves-light btn-large z-depth-4" type="submit" name="changePasswordSubmit">CHANGER</button>

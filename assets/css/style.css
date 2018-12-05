@@ -37,6 +37,7 @@ footer {
 
 #footerText {
     color : white !important;
+    margin-left: 750px;
 }
 
 #navBtn {
@@ -48,6 +49,11 @@ footer {
     background-color: #770B1A;
     font-size: 19px !important;
 }
+
+#messageConnect {
+    color: white !important;
+}
+
 
 #formTeacher,
 #searchActivity,
@@ -81,7 +87,9 @@ footer {
 #addActInFav,
 #deleteActivityButton,
 #cancelButton,
-#changePasswordSubmit {
+#changePasswordSubmit,
+#connectButton,
+#incrptButton {
     background-color: #770b1a;
     text-align: center;
     font-size: 30px !important;
@@ -91,7 +99,9 @@ footer {
 
 #startButton,
 #submitButton,
-#connectionButton {
+#connectionButton,
+#connectButton,
+#incrptButton {
     margin-left: 50px;
 }
 
@@ -119,13 +129,19 @@ h1 {
     color: black;
 }
 
-a {
-color : white !important;
+a, 
+#welcomeMessage,
+#errorInscrMessage,
+#errorPasswordMessage,
+#activityModify {
+    color : white !important;
+    }
+
+h2,
+#activityModify {
+    font-size : 30px !important;
 }
 
-h2 {
-    font-size : 30px;
-}
 p,
 pre {
     font-size: 20px;
@@ -153,6 +169,7 @@ font-size: 30px;
 a {
  color: red;
 }
+
 h1, 
 .welcome,
 #messageNotConnected,
@@ -216,6 +233,9 @@ margin-left: 500px;
          }
          #showAct {
             font-size: 13px;
+        }
+        #footerText {
+            margin-left: 2px;
         }
 }
 @media(max-width:1500px) {

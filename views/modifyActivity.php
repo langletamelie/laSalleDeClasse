@@ -3,13 +3,11 @@ include '../header.php';
 include '../controllers/modifyActivityController.php';
 ?>
 <!-- si l'utilisateur est connecté on affiche la page -->
-<?php if (isset($_SESSION['isConnect'])) { ?>
-    <!-- Si la modification de l'atelier a eu lieu on affiche un message de confirmation-->
-    <?php if (isset($_POST['submit']) && (count($formError) === 0)) { ?> 
-        <p id="ok">Les données modifiées ont été enregistrées</p>           
-    <?php } else { ?>   
+<?php if (isset($_SESSION['isConnect'])) { ?>  
         <div class="container-fluid">
             <h1>Modifier votre atelier</h1>
+             <!-- Si la modification de l'atelier a eu lieu on affiche un message de confirmation-->
+        <p id="activityModify"><?= isset($message) ? $message : '' ?></p>      
             <div class="row">
                 <form id="modifyActivityForm" class="col l10 blue-grey darken-1" action="modifyActivity.php?id=<?= $displayAnActivity->id ?>" method="POST">
                     <div class="input-field col l10 offset-l1">
@@ -62,7 +60,6 @@ include '../controllers/modifyActivityController.php';
                 </form>
             </div>
         </div>
-    <?php } ?>
 <?php } else { ?>
       <!-- Si une personne est sur la page mais qu'elle n'est pas connectée: affichage d'un message et d'un bouton dirigeant vers la page d'accueil -->
     <div>

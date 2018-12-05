@@ -7,13 +7,12 @@ include '../controllers/formAddTeacherController.php';
 <?php if (isset($_POST['inscriptionButton']) && (count($formError) === 0)) { 
     // Si le professeur n'est pas dans la base de données: on l'ajoute et on affiche un message de bienvenue et le lien vers la connexion sur le site 
      if ($check == 0) { ?> 
-        <p id="messageOk">Vous êtes inscrit! Veuillez vous connecter pour accéder au contenu du site</p>
-        <p id="messageOk"><a href="connection.php" title="lien vers la page de connexion" alt="page de connexion"><button type="button">CONNEXION</button></a></p>
+        <p id="welcomeMessage">Vous êtes inscrit! Veuillez vous connecter pour accéder au contenu du site</p>
+        <p><a href="connection.php" title="lien vers la page de connexion" alt="page de connexion"><button type="submit" id="connectButton" class="btn waves-effect waves-light btn-large z-depth-4" name="connectButton">CONNEXION</button></a></p>
     <?php } 
-    // Si le professeur est déjà enregistré dans la base de données ou , on lui affiche un message d'erreur et un lien vers la page d'inscription
+    // Si le professeur est déjà enregistré dans la base de données ou qu'il y a eu une erreur à l'inscription, on lui affiche un message d'erreur et un lien vers la page d'inscription
      if ($check != 0) { ?>
-        <p id="messageOk">Vous êtes déjà enregistré dans notre base de données</p>
-        <p id="messageOk"><a href="formAddTeacher.php" title="lien vers le formulaire d'inscription" alt="ajout de patient"><button type="button">INSCRIPTION</button></a></p>
+        <p id="errorInscrMessage">Une erreur a été constatée. Veuillez ré-essayer de vous inscrire, ou essayez de vous connecter si vous avez déjà un compte</p>
     <?php } ?>
 <?php } else { ?>  
     <div class="container-fluid">
